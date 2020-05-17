@@ -37,6 +37,7 @@
 
     echo "</table>";
     }
+
   }
 
   function addMocks($conn)
@@ -117,10 +118,10 @@
     $query = "SELECT * FROM `directors` ";
     $result = mysqli_query($conn, $query);
 
-
     $id = "Not a number";
     if($_SERVER['REQUEST_METHOD'] == "GET" and (isset($_GET['button'])) )
     {
+
         while($row = mysqli_fetch_assoc($result))
         {
           if(isset($_GET['button']))
@@ -129,10 +130,13 @@
     $sql = "DELETE FROM directors WHERE id=". $id;
 
     if ($conn->query($sql) === TRUE)
-        echo "<script type='text/javascript'>alert('Данные удалены');</script>";
-    else
-        echo "<script type='text/javascript'>alert('Ошибка');</script>";
-    }
-  }
+    {
+      $query = "SELECT * FROM `directors` ";
+      $result = mysqli_query($conn, $query);
+      
 
+    }
+
+  }
+}
 ?>
