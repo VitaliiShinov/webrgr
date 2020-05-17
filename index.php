@@ -36,6 +36,7 @@
             <th> Остаток </th>
             <th> Дата </th>
             <th> Выручка </th>
+            <th> Изменить данные </th>
 
              </tr>";
 
@@ -50,6 +51,7 @@
         echo  "<td>"  . $row['leftTickets'] . "</td>";
         echo  "<td>"  . $row['date'] . "</td>";
         echo  "<td>"  . $row['gain'] . "</td>";
+        echo  "<td>"  . ' <form action="editPlay.php" method="GET"> <input type="submit" name="button" value="Изменить '  . $row['id'] . '"/>' . " </form> </td>" ;
       }
 
     echo "</table>";
