@@ -1,6 +1,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style/style.css">
   </head>
   <body>
     <form method="POST" action="addPlay.php">

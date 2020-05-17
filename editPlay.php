@@ -1,6 +1,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style/style.css">
   </head>
   <body>
 
@@ -112,14 +113,13 @@ else
 
   if(array_key_exists('editPlay', $_POST)) {
 
-    $sql = "UPDATE plays SET name ='".$_POST['name']."', genre ='" . $_POST['genre'] ."', director ='" . $_POST['director'].
-                "', price ='" .  $_POST['price']. "', selled ='" . $_POST['selled'] . "', leftTickets ='" . $_POST['left'] . "', date ='" .
-                $_POST['date'] . "', gain ='" . $_POST['gain']. "'WHERE id=" .$_POST['id'] ;
-    echo $sql;
+    $sql = "UPDATE plays SET name ='".$_POST['name']."', genre ='" . $_POST['genre'] ."', director ='" . $_POST['director']. "', price ='" .  $_POST['price']. "', selled ='" . $_POST['selled'] . "', leftTickets ='" . $_POST['left'] . "', date ='" .$_POST['date'] . "', gain ='" . $_POST['gain']. "'WHERE id=" .$_POST['id'];
+
 
    if (mysqli_query($conn, $sql)) {
 
-     echo "Record was edit successfully";
+     echo "Record was edit successfully <br />";
+     echo '<a href="./index.php">Назад</a>';
    } else {
      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
    }

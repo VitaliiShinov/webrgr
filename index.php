@@ -4,9 +4,11 @@
 <head>
 <title>Театр </title>
 <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 <body>
-<a href="./addPlay.php">Add</a>
+  <h1>Спектакли</h1>
+<a href="./addPlay.php">Добавить спектакль</a> <a href="addDirector.php">Добавить Режиссера</a>
 <?php
   $servername = "localhost";
   $username = "root";
@@ -72,6 +74,6 @@
 
 ?>
 
-<a href="addDirector.php">Добавить Режиссера</a>
+
 </body>
 </html>

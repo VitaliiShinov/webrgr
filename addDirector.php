@@ -2,12 +2,13 @@
 <head>
   <title>Режиссер </title>
   <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 
 <body>
   <form method="post">
     <input type="submit" name="addMocks"
-                class="button" value="Тестовые Данные" />
+                class="button" value="test" />
     <br/>
     Добавить режесcера
     <br/>
