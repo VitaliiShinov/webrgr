@@ -3,7 +3,7 @@
     <meta charset="UTF-8" />
   </head>
   <body>
-    <form method="POST" action="add.php">
+    <form method="POST" action="addPlay.php">
       название: <input type="text" name="name" /><br />
       жанр: <input type="text" name="genre" /><br />
 
@@ -20,7 +20,6 @@
         }
 
         else{
-          #mysql_query("SET NAMES 'UTF8'");
           $query = "SELECT * FROM `directors` ";
           $result = mysqli_query($conn, $query);
           if(!$result) echo mysqli_error($conn);
@@ -68,7 +67,7 @@
 
       $success = "Данные Добавлены";
       $sql = "INSERT INTO plays (id, name, genre, director, price, selled, date) VALUES ('null','".$_POST["name"]."','".$_POST["genre"]."','".$_POST["director"]."','".$_POST["price"]."','".$_POST["selled"]."','".$_POST["date"]."')";
-      
+
       if (mysqli_query($conn, $sql)) {
       echo "New record created successfully";
     } else {

@@ -73,7 +73,7 @@
   {
     $query = "SELECT * FROM `directors` ";
     $result = mysqli_query($conn, $query);
-    echo '<table border="2">';
+
     updateTable($result);
     echo "</table>";
   }
@@ -133,7 +133,7 @@
     {
       $query = "SELECT * FROM `directors` ";
       $result = mysqli_query($conn, $query);
-      
+
 
     }
 
