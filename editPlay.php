@@ -49,11 +49,9 @@
 
   else{
     $id = "Not a number";
-    if($_SERVER['REQUEST_METHOD'] == "GET" and (isset($_GET['button'])) )
+    if($_SERVER['REQUEST_METHOD'] == "GET")
     {
-      if(isset($_GET['button']))
-        $id = substr($_GET['button'], 17, 100);
-
+      $id = array_keys($_GET)[0];
 
     $query = "SELECT * FROM `plays` WHERE id =".$id;
     $result = mysqli_query($conn, $query);
@@ -89,11 +87,14 @@
     echo '<input type="submit" name="editPlay"
                 class="button" value="Сохранить" />
      </form>
+      <a href="./index.php">Назад</a>;
      </html>';
      $conn->close();
 
 }
 }
+
+
 ?>
 
 
@@ -125,4 +126,6 @@ else
    }
   }
 }
+
+
  ?>

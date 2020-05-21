@@ -88,7 +88,9 @@
   if(array_key_exists('addDirector', $_POST)) {
     header("Refresh:0");
     $success = "Данные Добавлены";
-    $sql = "INSERT INTO directors (id, name) VALUES ('null', '" . $_POST['name'] . "')";
+    $
+    $name = test_input($_POST["name"]);
+    $sql = "INSERT INTO directors (id, name) VALUES ('null', '" . $name . "')";
     if ($conn->query($sql) === TRUE)
       echo "<script type='text/javascript'>alert('$success');</script>";
     else
@@ -100,6 +102,7 @@
     updateTable($result);
   }
   $conn->close();
+   echo '<a href="./index.php">Назад</a>';
 ?>
 
 <?php
