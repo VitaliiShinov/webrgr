@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 21 2020 г., 14:46
+-- Время создания: Май 21 2020 г., 15:25
 -- Версия сервера: 10.4.6-MariaDB
 -- Версия PHP: 7.3.8
 
@@ -66,8 +66,8 @@ CREATE TABLE `plays` (
 --
 
 INSERT INTO `plays` (`id`, `name`, `genre`, `director`, `price`, `selled`, `leftTickets`, `date`, `gain`) VALUES
-(0, '	Jaws', '	I dunno', 0, 120, 50, 123, '2020-05-29', 6000),
-(1, '	Whos That Knocking at My Door', '	No clue', 2, 450, 76, 0, '2020-05-19', 34200);
+(1, '	Whos That Knocking at My Door', '	No clue', 2, 450, 76, 0, '2020-05-19', 34200),
+(127, 'Jaws', 'I dunno', 1, 120, 50, 123, '2020-05-26', 6000);
 
 --
 -- Индексы сохранённых таблиц
@@ -77,13 +77,15 @@ INSERT INTO `plays` (`id`, `name`, `genre`, `director`, `price`, `selled`, `left
 -- Индексы таблицы `directors`
 --
 ALTER TABLE `directors`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`);
 
 --
 -- Индексы таблицы `plays`
 --
 ALTER TABLE `plays`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `director` (`director`);
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц
@@ -93,13 +95,23 @@ ALTER TABLE `plays`
 -- AUTO_INCREMENT для таблицы `directors`
 --
 ALTER TABLE `directors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `plays`
 --
 ALTER TABLE `plays`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
+
+--
+-- Ограничения внешнего ключа сохраненных таблиц
+--
+
+--
+-- Ограничения внешнего ключа таблицы `plays`
+--
+ALTER TABLE `plays`
+  ADD CONSTRAINT `plays_ibfk_1` FOREIGN KEY (`director`) REFERENCES `directors` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
